@@ -126,13 +126,11 @@
             var_dump(true || false && false);
             ?>
 
-
-    <h3>Instrukcje warunkowe odc.6</h3>
-    <form action="index.php" method="get">
-        <input type="number" name="num" id="">
-        <input type="submit" value="Wyślij">
+        <h3>Instrukcje warunkowe odc.6</h3>
+        <form action="index.php" method="get">
+            <input type="number" name="num" id="">
+            <input type="submit" value="Wyślij">
         </form>
-
         <?php
             if(isset($_GET['num']) and is_numeric($_GET['num']))
             {
@@ -167,6 +165,98 @@
             else
                 echo '<br>Wypełnij pole!';
 
+        ?>
+
+        <h3>Instrukcje wyboru odc.7</h3>
+        <form action="index.php" method="get">
+            <input type="number" name="num" id="">
+            <input type="submit" value="Wyślij">
+        <?php
+            if(isset($_GET['num']) and is_numeric($_GET['num']))
+            {
+                $day = $_GET['num'];
+                echo "<br>Dzień = $day, ";
+
+                switch($day)
+                {
+                    case 1:
+                        echo 'Poniedziałek';
+                        break;
+                    case 2:
+                        echo 'Wtorek';
+                        break;
+                    case 3:
+                        echo 'Środa';
+                        break;
+                    case 4:
+                        echo 'Czwartek';
+                        break;
+                    case 5:
+                        echo 'Piątek';
+                        break;
+                    case 6:
+                    case 7:
+                        echo 'Weekend';
+                        break;
+                    default:
+                        echo 'Nie ma takiego dnia';
+                        break;
+                }
+            }
+            else
+                echo '<br>Wypełnij pole!';
+        ?>
+
+        <h3>pętle</h3>
+        <form>
+            <input type="number" name="num" id="">
+            <input type="submit" value="Wyślij">
+        </form>
+        <?php
+            if(isset($_GET['num']) and is_numeric($_GET['num']))
+            {
+                $num = $_GET['num'];
+                echo "<br>Liczba = $num<br>";
+
+                echo '<table><tr><th>WHILE</th><th>DO WHILE</th><th>FOR</th></tr>';
+                echo '<tr>';
+                echo '<td>';
+
+                $i = $a;
+                while($i > 0)
+                {
+                    echo "$i<br>";
+                    $i--;
+                }
+
+                echo '</td>';
+                echo '<td>';
+
+                $i = $a;
+                do
+                {
+                    echo "$i<br>";
+                    $i--;
+                }
+                while($i > 0);
+
+                echo '</td>';
+                echo '<td>';
+
+                for($a = $a; $i > 0; $i--)
+                {
+                    echo "$i<br>";
+                }
+
+
+                echo '</td>';
+                echo '</tr>';
+                echo '</table>';
+            }
+            else
+            {
+                echo '<br>Wypełnij pole!';
+            }
         ?>
 </body>
 </html>
