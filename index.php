@@ -207,7 +207,7 @@
                 echo '<br>Wypełnij pole!';
         ?>
 
-        <h3>pętle</h3>
+        <h3>pętle odc.8 / instrukcje skoku odc.9</h3>
         <form>
             <input type="number" name="num" id="">
             <input type="submit" value="Wyślij">
@@ -226,6 +226,10 @@
                 while($i > 0)
                 {
                     echo "$i<br>";
+                    if($i == 5)
+                    {
+                        break;
+                    }
                     $i--;
                 }
 
@@ -235,7 +239,16 @@
                 $i = $a;
                 do
                 {
-                    echo "$i<br>";
+                    if($i % 2 == 1)
+                    {
+                        goto lab1;
+                    }
+                    echo "$i - parzysta<br>";
+                    $i--;
+                    continue;
+
+                    lab1:
+                    echo "$i - nieparzysta<br>";
                     $i--;
                 }
                 while($i > 0);
@@ -245,6 +258,10 @@
 
                 for($a = $a; $i > 0; $i--)
                 {
+                    if($a % 2 == 1)
+                    {
+                        continue;
+                    }
                     echo "$i<br>";
                 }
 
@@ -258,5 +275,79 @@
                 echo '<br>Wypełnij pole!';
             }
         ?>
+
+        <h3>tablice odc.10</h3>
+        <?php
+
+        $tab = array('Ania', 'Bartek', 'Adam');
+        echo $tab[0];
+        echo '<br>';
+        echo $tab[1];
+        echo '<br>';
+        $tab[2] = 'Maciej';
+        echo $tab[2];
+        echo '<br>';
+        echo '<br>';
+
+        $tab2[0] = 5;
+        $tab2[1] = 10;
+        $tab2[2] = 15;
+
+        echo $tab2[0];
+        echo '<br>';
+        echo $tab2[1];
+        echo '<br>';
+        echo $tab2[2];
+        echo '<br>';
+        echo '<br>';
+
+        $tab3 = array('red' => 'czerwony', 'green' => 'zielony', 'blue' => 'niebieski');
+
+        echo $tab3['red'];
+        echo '<br>';
+        echo $tab3['blue'];
+        echo '<br>';
+        $tab3['green'] = 'green';
+        echo $tab3['green'];
+        echo '<br>';
+        echo '<br>';
+
+        $tab4['language']['programming'][0] = 'php';
+        echo $tab4['language']['programming'][0];
+        echo '<br>';
+        echo '<br>';
+
+        var_dump($tab);
+        echo '<br>';
+        print_r($tab);
+
+        ?>
+
+        <h3>tablice - pętle odc.11</h3>
+        <?php
+
+        $tab = array('Ania', 'Bartek', 'Adam', 'Maciej', 'Ola');
+
+        echo 'FOR:<br><br>';
+        echo count($tab);
+        for($i = 0; $i < count($tab); $i++)
+        {
+            echo $tab[$i];
+            echo '<br>';
+        }
+
+        echo '<br>FOREACH:<br><br>';
+
+        $tab2['one'] = 1;
+        $tab2['two'] = 2;
+
+        foreach($tab as $key => $value)
+        {
+            echo "$key $value";
+            echo '<br>';
+        }
+
+        ?>
+
 </body>
 </html>
